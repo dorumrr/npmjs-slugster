@@ -24,8 +24,10 @@ slugster('Anyone & Everyone'); // => anyone-and-everyone
 slugster('❤️ Étretat & Ille-sur-Têt!') // => etretat-and-ille-sur-tet
 ```
 
-If you want a different separator, pass it as a second parameter:
+#### If you want a different separator, just pass it as a second parameter:
 
 ```
 slugster('Anyone & Everyone', '_'); // => anyone_and_everyone
+
+slugster('Anyone & Everyone', '***'); // => anyone***and***everyone
 ```

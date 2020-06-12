@@ -3,6 +3,9 @@
   "version": "1.0.2",
   "description": "Slugify anything, anytime.",
   "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
   "publishConfig": {
     "access": "public"
   },

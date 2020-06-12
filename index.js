@@ -1,7 +1,11 @@
-var slugster = function (text) {
-  var separator = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "-";
-  if (!text) return null; // initial cleanup:
-
+var slugster = function (text, separator) {
+  // var separator = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "-";
+  if (!text) return null; 
+  if (!separator) {
+    separator = '-';
+  }
+  
+  // initial cleanup:
   text = text.toString() // to string
     .toLowerCase() // to lowercase
     .trim(); // remove empty spaces from begining and/or end
@@ -84,8 +88,9 @@ var slugster = function (text) {
       to: "-",
       from: "[·/_,:;']"
     }
-  ]; // perform special characters replacement:
-
+  ]; 
+  
+  // perform special characters replacement:
   sets.map(function (set) {
     return text = text.replace(new RegExp(set.from, "gi"), set.to);
   });
