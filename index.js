@@ -1,12 +1,12 @@
-var slugster = function toSlug(text) {
+var slugster = function (text) {
   var separator = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "-";
   if (!text) return null; // initial cleanup:
 
   text = text.toString() // to string
     .toLowerCase() // to lowercase
     .trim(); // remove empty spaces from begining and/or end
-  // special characters declaration:
 
+  // special characters declaration:
   var sets = [
     {
       to: "a",
@@ -88,8 +88,9 @@ var slugster = function toSlug(text) {
 
   sets.map(function (set) {
     return text = text.replace(new RegExp(set.from, "gi"), set.to);
-  }); // actual slugifying:
-
+  });
+  
+  // slugify:
   text = text.replace(/\s+/g, "-") // Replace spaces with -
     .replace(/&/g, "-and-") // Replace & with 'and'
     .replace(/[^\w-]+/g, "") // Remove all non-word chars
